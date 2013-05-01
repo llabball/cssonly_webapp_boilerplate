@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- core css styles for layouting and transitioning -->
+  <link rel="stylesheet" type="text/css" href="webapp_skeleton.css">
+</head>
+
+<body>
+<!-- main click anchors. the ids will be visible as fragments in the browser address bar. -->
+<!-- they delegate the triggers to the corresponding content containers. they shouldn't  -->
+<!-- hold the content by them self because the browser trys to scroll to these ids -->
+<div id="menuleft"></div>
+<div id="menutop"></div>
+<div id="menuright"></div>
+<div id="view"></div>
+<!-- its not visible by default (-100% on the left browser edge) -->
+<div id="menuleftcontent" class="menucontent"></div>
+<!-- the menuright is placed in the visible area, aligned to the right browser edge -->
+<!-- its not visible by default (its hidden behind the main viewport layer) -->
+<div id="menurightcontent" class="menucontent"></div>
+<!-- for the transitions the menutop container needs a container itself -->
+<!-- its not visible by default (-100% on the top browser edge) -->
+<div id="menutopcontainer"><div id="menutopcontent" class="menucontent"></div></div>
+<!-- its visible by default and fixed to the top. -->
+<div id="navbarcontainer">
+  <div id="navbarcontent">
+    <a href="#menuleft" id="menuleftbtn">left menu</a>
+    <a href="#view" id="menuleftbackbtn">back</a> 
+    <a href="#menutop" id="menutopbtn">top menu</a>
+    <a href="#view" id="menutopbackbtn">back</a>
+    <a href="#menuright" id="menurightbtn">right menu</a>
+    <a href="#view" id="menurightbackbtn">back</a> 
+  </div>
+</div>
+<!-- invisible container for processing transitions of the viewcontent without scrolling bar etc.  -->
+<div id="viewport">
+  <!-- MAIN CONTENT CONTAINER. on vertically scrollable -->
+  <div id="viewcontent">
+    <a href="demo.html">go to rich-featured Demo</a>
+  </div>
+</div>
+
+</body>
+</html>
