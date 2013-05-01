@@ -1,0 +1,43 @@
+/*
+  on thing is special: the navbar height. its not in the skeleton because it affects directly the 
+  viewcontent and should be harmonized with them
+
+  as anchors for the custom styles use the ids of the content containers and the navbar buttons
+     * #menuleftcontent / #menuleftbtn / #menuleftbackbtn
+     * #menurightcontent / #menurightbtn / #menurightbackbtn
+     * #menutopcontent / #menutopbtn / #menutopbackbtn 
+     * #viewcontent
+     * #navbarcontent
+     * 
+  all of the content-containers needing a background-color definition
+*/
+
+
+/* background and font colors */
+#viewcontent, #menuleftcontent, #menurightcontent, #menutopcontent {
+  font-size:1.4em;
+  font-family: Verdana;
+  font-weight: bold;
+  text-indent: 2%;
+  text-shadow: -1px -1px 1px rgba(0,0,0,1);
+}
+#viewcontent      {background:#d3d3d3;color:#ffffff;}
+#menuleftcontent  {background:#A60000;color:#FF0000;}
+#menurightcontent {background:#210672;color:#007AFF;}
+#menutopcontent   {background:#008209;color:#03FD14;}
+
+
+/* ============================ demo related mock contents ============================================*/
+#viewcontent img {max-width: 300px;}
+#viewcontent:before {
+  content: '#vievcontent';
+}
+#menuleftcontent:before {
+  content: '#menuleftcontent';
+}
+#menurightcontent:before {
+  content: '#menurightcontent';
+}
+#menutopcontent::after {
+  content: '#menutopcontent';
+}
