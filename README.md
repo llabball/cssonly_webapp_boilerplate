@@ -18,19 +18,17 @@ HTML5 Browser only! Tested on iOS6 and ubuntu/osx desktops with Chrome, Firefox,
 
 The project was to find a **webapp boilerplate** with the following requirements:
 
-* [x] no JavaScript needed
-* [x] JavaScript friendly (minimal side effects)
-* [x] page transitions
-* [x] responsive
-* [x] left-, top-, right menus (and bonus points for bottom menu)
-* [x] overflowing contents and native scrolling on mobile devices
-* [ ] optional touch and swipe handling (via JavaScript)
+- [x] no JavaScript needed
+- [x] JavaScript friendly (minimal side effects)
+- [x] page transitions
+- [x] responsive
+- [x] left-, top-, right menus (and bonus points for bottom menu)
+- [x] overflowing contents and native scrolling on mobile devices
+- [ ] optional touch and swipe handling (via JavaScript)
 
 ## The skeleton
-<figure style="float:right;">
-  <img src="https://rawgithub.com/llabball/cssonly_webapp_boilerplate/master/demo_assets/img/cssonlywebappboilerplate_initview.svg" width="200">
-  <figcaption>fig. 1 the app as a user will see it initially</figcaption>
-</figure>
+<img src="https://rawgithub.com/llabball/cssonly_webapp_boilerplate/master/demo_assets/img/cssonlywebappboilerplate_initview.svg" width="200">
+<small>fig. 1 the app as a user will see it initially</small>
 
 The webapp interface is simple as it can be. A full-screen content area overlapped from a fixed navigation bar on top. Not shown on the image are three navigation bar button (left|center|right) to reach the menus.
 
@@ -38,11 +36,10 @@ The webapp interface is simple as it can be. A full-screen content area overlapp
 
 ### the exploded view
 
-<figure style="float:right;">
-  <img src="https://rawgithub.com/llabball/cssonly_webapp_boilerplate/master/demo_assets/img/cssonlywebappboilerplate_explosion.svg" width="300">
-  <figcaption>
-    fig. 2 all layers with z-index and ids<br> containers are transparent and bordered <br>with a dashed line</figcaption>
-</figure>
+<img src="https://rawgithub.com/llabball/cssonly_webapp_boilerplate/master/demo_assets/img/cssonlywebappboilerplate_explosion.svg" width="300">
+<small>
+    fig. 2 all layers with z-index and ids<br> containers are transparent and bordered <br>with a dashed line
+</small>
 
 The layers in order of their z-index from bottom to top:
 
@@ -64,11 +61,10 @@ Some will ask: why not simply using the `overflow-x: hidden` solution? Answer: B
 
 ### #menuleft
 
-<figure style="float:right;">
 <img src="https://rawgithub.com/llabball/cssonly_webapp_boilerplate/master/demo_assets/img/cssonlywebappboilerplate_menuleft.svg" width="300">
-<figcaption>
-    fig. 3 #menuleft transition related layers</figcaption>
-</figure>
+<small>
+    fig. 3 #menuleft transition related layers
+</small>
 
 The #menuleft click starts the most parallel transitions of all. 
 
@@ -80,11 +76,11 @@ The #navbarcontent and the #viewcontent moving simultaneity 80% to the right. Th
 
 ### #menuright
 
-<figure style="float:right;">
+
 <img src="https://rawgithub.com/llabball/cssonly_webapp_boilerplate/master/demo_assets/img/cssonlywebappboilerplate_menuright.svg" width="300">
-<figcaption>
-    fig. 4 #menuright transition related layers</figcaption>
-</figure>
+<small>
+    fig. 4 #menuright transition related layers
+</small>
 
 Didn't found a solution to animate the right menu the same as the left menu.
 
@@ -99,11 +95,10 @@ In difference to the #menuleft transition the #menuright click starts to move th
 
 ### #menutop
 
-<figure style="float:right;">
 <img src="https://rawgithub.com/llabball/cssonly_webapp_boilerplate/master/demo_assets/img/cssonlywebappboilerplate_menutop.svg" width="200">
-<figcaption>
+<small>
     fig. 5 #menuright transition related layers</figcaption>
-</figure>
+</small>
 
 This is simple. The #menutopcontainer moving 100% to the bottom. The inherit #menutopcontent is only as height as its content - the underlaying #viewcontent will be probably visible.
 
