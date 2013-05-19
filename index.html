@@ -3,44 +3,56 @@
 <head>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- optional bootstrap -->
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css">
   <!-- core css styles for layouting and transitioning -->
   <link rel="stylesheet" type="text/css" href="webapp_skeleton.css">
 </head>
 
 <body>
-<!-- main click anchors. the ids will be visible as fragments in the browser address bar. -->
-<!-- they delegate the triggers to the corresponding content containers. they shouldn't  -->
-<!-- hold the content by them self because the browser trys to scroll to these ids -->
-<a id="menuleft"></a>
-<a id="menutop"></a>
-<a id="menuright"></a>
-<a id="view"></a>
-<!-- its not visible by default (-100% on the left browser edge) -->
-<nav id="menuleftcontent" class="menucontent"></nav>
-<!-- the menuright is placed in the visible area, aligned to the right browser edge -->
-<!-- its not visible by default (its hidden behind the main viewport layer) -->
-<nav id="menurightcontent" class="menucontent"></nav>
-<!-- for the transitions the menutop container needs a container itself -->
-<!-- its not visible by default (-100% on the top browser edge) -->
-<nav id="menutopcontainer"><nav id="menutopcontent" class="menucontent"></nav></nav>
-<!-- its visible by default and fixed to the top. -->
-<nav id="navbarcontainer">
-  <nav id="navbarcontent">
-    <a href="#menuleft" id="menuleftbtn">left menu</a>
-    <a href="#view" id="menuleftbackbtn">back</a> 
-    <a href="#menutop" id="menutopbtn">top menu</a>
-    <a href="#view" id="menutopbackbtn">back</a>
-    <a href="#menuright" id="menurightbtn">right menu</a>
-    <a href="#view" id="menurightbackbtn">back</a> 
-  </nav>
-</nav>
-<!-- invisible container for processing transitions of the viewcontent without scrolling bar etc.  -->
-<div id="viewport">
-  <!-- MAIN CONTENT CONTAINER. on vertically scrollable -->
-  <main id="viewcontent">
-    <a href="demo.html">go to rich-featured Demo</a>
-  </main>
-</div>
+  <!-- opening bootstrap wrapper (desktop view)-->
+  <div class="fullheight container">
+    <div class="fullheight row-fluid">
+        <div class="fullheight span12">
+
+        <!-- main click anchors. the ids will be visible as fragments in the browser address bar. -->
+        <!-- they delegate the triggers to the corresponding content containers. they shouldn't  -->
+        <!-- hold the content by them self because the browser trys to scroll to these ids -->
+        <a id="menuleft"></a>
+        <a id="menutop"></a>
+        <a id="menuright"></a>
+        <a id="view"></a>
+        <!-- its not visible by default (-100% on the left browser edge) -->
+        <nav id="menuleftcontent" class="menucontent"></nav>
+        <!-- the menuright is placed in the visible area, aligned to the right browser edge -->
+        <!-- its not visible by default (its hidden behind the main viewport layer) -->
+        <nav id="menurightcontent" class="menucontent"></nav>
+        <!-- for the transitions the menutop container needs a container itself -->
+        <!-- its not visible by default (-100% on the top browser edge) -->
+        <nav id="menutopcontainer"><nav id="menutopcontent" class="menucontent"></nav></nav>
+        <!-- its visible by default and fixed to the top. -->
+        <nav id="navbarcontainer">
+          <nav id="navbarcontent">
+            <a href="#menuleft" id="menuleftbtn">left menu</a>
+            <a href="#view" id="menuleftbackbtn">back</a> 
+            <a href="#menutop" id="menutopbtn">top menu</a>
+            <a href="#view" id="menutopbackbtn">back</a>
+            <a href="#menuright" id="menurightbtn">right menu</a>
+            <a href="#view" id="menurightbackbtn">back</a> 
+          </nav>
+        </nav>
+        <!-- invisible container for processing transitions of the viewcontent without scrolling bar etc.  -->
+        <div id="viewport">
+          <!-- MAIN CONTENT CONTAINER. on vertically scrollable -->
+          <main id="viewcontent">
+            <a href="demo.html">go to rich-featured Demo</a>
+          </main>
+        </div>
+
+      <!-- closing bootstrap wrapper -->
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

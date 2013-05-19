@@ -1,139 +1,151 @@
-body {padding:0;margin:0;}
-
-/* hidden menues shouldnt be larger then the overlaying content  */
-#menuleftcontent, #menurightcontent, #menutopcontent {overflow: hidden;}
-
-/* main styles of the containers*/
-#viewcontent, #viewport, #menuleftcontent, #menurightcontent, #menutopcontainer {position:absolute;}
-
-#viewport,
-  #viewcontent    {min-height: 100%; width: 100%; z-index: 2;}
-
-#navbarcontainer  {    height: 40px; width: 100%; z-index: 4; position:fixed;}
-#navbarcontent    {                  width: 100%;}
-
-#menuleftcontent  {    height: 100%; width: 80%;  z-index: 5; left: -80%;}
-#menurightcontent {    height: 100%; width: 80%;  z-index: 1; left: 20%;}
-#menutopcontainer {    height: 100%; width:100%;  z-index: 3; top: -100%;}
-#menutopcontent   {min-height: 30%;  max-height: 90%;}
-
-
-/* all container, but menuright, changes are animated */
-#viewcontent, #viewport, #navbarcontent, #navbarcontainer, #menuleftcontent, #menutopcontainer {
-  -webkit-transition: all .4s ease-in;
-  -moz-transition: all .4s ease-in;
-  -o-transition: all .4s ease-in;
-  -ms-transition: all .4s ease-in;
-  transition: all .4s ease-in;
-}
-
-/* if a menu is called make the menu contents scrollable and the viewcontent not */
-#menuleft:target ~ #menuleftcontent, 
-  #menuright:target ~ #menurightcontent, 
-    #menutop:target ~ #menutopcontainer #menutopcontent {
-  overflow:auto;
-  -webkit-overflow-scrolling: touch;
-}
-#menuleft:target ~ #viewport,
-  #menuright:target ~ #viewport, 
-    #menutop:target ~ #viewport {
-  overflow: hidden;
-  -webkit-overflow-scrolling: hidden;
-}
-
-/* main page transitions ===================================================*/
-
-/* menuleft: - moving viewcontent, leftmenu AND navbarcontent to the right */
-/*           - content and navbarcontent only sliding inside their containers (which are overflow:hidden) */
-/*           - the menuleft has the highest z-index and overlays the containers */
-#menuleft:target ~ #viewport #viewcontent, 
-  #menuleft:target ~ #navbarcontainer #navbarcontent {
-  -webkit-transform: translate3d(80%,0,0);
-  -moz-transform: translate3d(80%,0,0);
-  -o-transform: translate3d(80%,0,0);
-  -ms-transform: translate3d(80%,0,0);
-  transform: translate3d(80%,0,0);
-}
-#menuleft:target ~ #menuleftcontent {
-  -webkit-transform: translate3d(100%,0,0);
-  -moz-transform: translate3d(100%,0,0);
-  -o-transform: translate3d(100%,0,0);
-  -ms-transform: translate3d(100%,0,0);
-  transform: translate3d(100%,0,0);
-}
-
-/* menuright: - moving the containers (content, navbar) to the left */
-/*            - the underlaying menuright will be visible and accessible (its no longer */
-/*              hidden behind a container with a higher z-index) */
-#menuright:target ~ #viewport,
-  #menuright:target ~ #navbarcontainer {
-  -webkit-transform: translate3d(-80%,0,0);
-  -moz-transform: translate3d(-80%,0,0);
-  -o-transform: translate3d(-80%,0,0);
-  -ms-transform: translate3d(-80%,0,0);
-  transform: translate3d(-80%,0,0);
-}
-
-/* menutop: - move the top container down from hidden top; */
-/*            the top menu has a higher z-index as the viewcontent but a lower then the navbarcontent */
-#menutop:target ~ #menutopcontainer {
-  -webkit-transform: translate3d(0,100%,0);
-  -moz-transform: translate3d(0,100%,0);
-  -o-transform: translate3d(0,100%,0);
-  -ms-transform: translate3d(0,100%,0);
-  transform: translate3d(0,100%,0);
-}
-
-/* ===================================== begin navbar ===================================================*/
-
-/* define the navbar hide and prevent the viewcontent to be hidden */
-#navbarcontent           {height:      40px; line-height: 40px; text-align: center;}
-#viewcontent:first-child {padding-top: 50px;}
-#menutopcontent:first-child {padding-top: 50px;}
-
-/* navbar buttons */
-#navbarcontent a,#navbarcontent a:hover {color: #3C3535;text-decoration: none;}
-
-/* make icons bigger then the text */ 
-#menutopbtn, #menutopbackbtn {font-size: 1.0em;}
-#menuleftbtn, #menuleftbackbtn, #menurightbtn, #menurightbackbtn {font-size: 1.3em;}
-
-/* overwrite the browser default colors for links */
-#menuleftbtn, #menuleftbtn:hover, #menuleftbackbtn, #menuleftbackbtn:hover,
-  #menurightbtn, #menurightbtn:hover, #menurightbackbtn, #menurightbackbtn:hover,
-    #menutopbtn, #menutopbtn:hover, #menutopbackbtn, #menutopbackbtn:hover {
-  color: #aaa;
-}
-
-/* spacing and positioning the side buttons  */
-#menuleftbtn, #menuleftbackbtn   {margin-left:  2%; float: left;}
-#menurightbtn, #menurightbackbtn {margin-right: 2%; float: right;}
-
-
-/* hide unnessesary action buttons when any menu state is open */
-#menuleft:target ~ #navbarcontainer #navbarcontent #menuleftbtn, 
-  #menuright:target ~ #navbarcontainer #navbarcontent #menurightbtn, 
-    #menutop:target ~ #navbarcontainer #navbarcontent #menuleftbtn,
-      #menutop:target ~ #navbarcontainer #navbarcontent #menurightbtn,
-        #menutop:target ~ #navbarcontainer #navbarcontent #menutopbtn {
-  display: none;
-}
-
-/* back buttons are hidden by default and visible when a menu state is open */
-#menuleftbackbtn, #menurightbackbtn, #menutopbackbtn {display: none;}
-#menuleft:target ~ #navbarcontainer #navbarcontent #menuleftbackbtn, 
-  #menuright:target ~ #navbarcontainer #navbarcontent #menurightbackbtn,
-    #menutop:target ~ #navbarcontainer #navbarcontent #menutopbackbtn {
-  display: inherit;
-}
-/* ===================================== end navbar =====================================================*/
-
 /* default background and font colors */
-/* ===================================== begin navbar ===================================================*/
+    #navbarcontent    {background:#EEE;}
+    #viewcontent      {background:#d3d3d3;}
+    #menuleftcontent  {background:#A60000;}
+    #menurightcontent {background:#210672;}
+    #menutopcontent   {background:#008209;}
 
-/* define the navbar hide and prevent the viewcontent to be hidden */
-#navbarcontent    {background:#EEE;}
-#viewcontent      {background:#d3d3d3;}
-#menuleftcontent  {background:#A60000;}
-#menurightcontent {background:#210672;}
-#menutopcontent   {background:#008209;}
+/* desktop view*/
+@media(min-width:768px) {
+    html, body, .fullheight {position:relative;height: 100%;}
+    #viewcontent, #viewport{position:absolute;height: 100%;}
+
+    #viewport,#viewcontent    {width: 100%; z-index: 2;}
+    #menuleftcontent          {width: 20%;  z-index: 1;}
+    #menurightcontent         {width: 20%;  z-index: 1; left: 80%;}
+    
+    #navbarcontainer, #menutopcontainer, #menuleftcontent, #menurightcontent   {display: none;}
+}
+
+/* mobile view */
+@media(max-width:767px) {
+    body {padding:0;margin:0;}
+    
+    #viewport,
+      #viewcontent    {min-height: 100%; width: 100%; z-index: 2;}
+    
+    #navbarcontainer  {    height: 40px; width: 100%; z-index: 4; position:fixed;}
+    #navbarcontent    {                  width: 100%;}
+    
+    #menuleftcontent  {    height: 100%; width: 80%;  z-index: 5; left: -80%;}
+    #menurightcontent {    height: 100%; width: 80%;  z-index: 1; left: 20%;}
+    #menutopcontainer {    height: 100%; width:100%;  z-index: 3; top: -100%;}
+    #menutopcontent   {min-height: 30%;  max-height: 90%;}
+
+    /* hidden menues shouldnt be larger then the overlaying content  */
+    #menuleftcontent, #menurightcontent, #menutopcontent {overflow: hidden;}
+    
+    /* main styles of the containers*/
+    #viewcontent, #viewport, #menuleftcontent, #menurightcontent, #menutopcontainer {position:absolute;}
+    
+    /* all container, but menuright, changes are animated */
+    #viewcontent, #viewport, #navbarcontent, #navbarcontainer, #menuleftcontent, #menutopcontainer {
+      -webkit-transition: all .4s ease-in;
+      -moz-transition: all .4s ease-in;
+      -o-transition: all .4s ease-in;
+      -ms-transition: all .4s ease-in;
+      transition: all .4s ease-in;
+    }
+    
+    /* if a menu is called make the menu contents scrollable and the viewcontent not */
+    #menuleft:target ~ #menuleftcontent, 
+      #menuright:target ~ #menurightcontent, 
+        #menutop:target ~ #menutopcontainer #menutopcontent {
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #menuleft:target ~ #viewport,
+      #menuright:target ~ #viewport, 
+        #menutop:target ~ #viewport {
+      overflow: hidden;
+      -webkit-overflow-scrolling: hidden;
+    }
+    
+    /* main page transitions ===================================================*/
+    
+    /* menuleft: - moving viewcontent, leftmenu AND navbarcontent to the right */
+    /*           - content and navbarcontent only sliding inside their containers (which are overflow:hidden) */
+    /*           - the menuleft has the highest z-index and overlays the containers */
+    #menuleft:target ~ #viewport #viewcontent, 
+      #menuleft:target ~ #navbarcontainer #navbarcontent {
+      -webkit-transform: translate3d(80%,0,0);
+      -moz-transform: translate3d(80%,0,0);
+      -o-transform: translate3d(80%,0,0);
+      -ms-transform: translate3d(80%,0,0);
+      transform: translate3d(80%,0,0);
+    }
+    #menuleft:target ~ #menuleftcontent {
+      -webkit-transform: translate3d(100%,0,0);
+      -moz-transform: translate3d(100%,0,0);
+      -o-transform: translate3d(100%,0,0);
+      -ms-transform: translate3d(100%,0,0);
+      transform: translate3d(100%,0,0);
+    }
+    
+    /* menuright: - moving the containers (content, navbar) to the left */
+    /*            - the underlaying menuright will be visible and accessible (its no longer */
+    /*              hidden behind a container with a higher z-index) */
+    #menuright:target ~ #viewport,
+      #menuright:target ~ #navbarcontainer {
+      -webkit-transform: translate3d(-80%,0,0);
+      -moz-transform: translate3d(-80%,0,0);
+      -o-transform: translate3d(-80%,0,0);
+      -ms-transform: translate3d(-80%,0,0);
+      transform: translate3d(-80%,0,0);
+    }
+    
+    /* menutop: - move the top container down from hidden top; */
+    /*            the top menu has a higher z-index as the viewcontent but a lower then the navbarcontent */
+    #menutop:target ~ #menutopcontainer {
+      -webkit-transform: translate3d(0,100%,0);
+      -moz-transform: translate3d(0,100%,0);
+      -o-transform: translate3d(0,100%,0);
+      -ms-transform: translate3d(0,100%,0);
+      transform: translate3d(0,100%,0);
+    }
+    
+    /* ===================================== begin navbar ===================================================*/
+    
+    /* define the navbar hide and prevent the viewcontent to be hidden */
+    #navbarcontent           {height:      40px; line-height: 40px; text-align: center;}
+    #viewcontent:first-child {padding-top: 50px;}
+    #menutopcontent:first-child {padding-top: 50px;}
+    
+    /* navbar buttons */
+    #navbarcontent a,#navbarcontent a:hover {color: #3C3535;text-decoration: none;}
+    
+    /* make icons bigger then the text */ 
+    #menutopbtn, #menutopbackbtn {font-size: 1.0em;}
+    #menuleftbtn, #menuleftbackbtn, #menurightbtn, #menurightbackbtn {font-size: 1.3em;}
+    
+    /* overwrite the browser default colors for links */
+    #menuleftbtn, #menuleftbtn:hover, #menuleftbackbtn, #menuleftbackbtn:hover,
+      #menurightbtn, #menurightbtn:hover, #menurightbackbtn, #menurightbackbtn:hover,
+        #menutopbtn, #menutopbtn:hover, #menutopbackbtn, #menutopbackbtn:hover {
+      color: #aaa;
+    }
+    
+    /* spacing and positioning the side buttons  */
+    #menuleftbtn, #menuleftbackbtn   {margin-left:  2%; float: left;}
+    #menurightbtn, #menurightbackbtn {margin-right: 2%; float: right;}
+    
+    
+    /* hide unnessesary action buttons when any menu state is open */
+    #menuleft:target ~ #navbarcontainer #navbarcontent #menuleftbtn, 
+      #menuright:target ~ #navbarcontainer #navbarcontent #menurightbtn, 
+        #menutop:target ~ #navbarcontainer #navbarcontent #menuleftbtn,
+          #menutop:target ~ #navbarcontainer #navbarcontent #menurightbtn,
+            #menutop:target ~ #navbarcontainer #navbarcontent #menutopbtn {
+      display: none;
+    }
+    
+    /* back buttons are hidden by default and visible when a menu state is open */
+    #menuleftbackbtn, #menurightbackbtn, #menutopbackbtn {display: none;}
+    #menuleft:target ~ #navbarcontainer #navbarcontent #menuleftbackbtn, 
+      #menuright:target ~ #navbarcontainer #navbarcontent #menurightbackbtn,
+        #menutop:target ~ #navbarcontainer #navbarcontent #menutopbackbtn {
+      display: inherit;
+    }
+    /* ===================================== end navbar =====================================================*/
+       
+}
